@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Actividad 2 - Taller HTML (12 casos)</title>
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; line-height: 1.35; margin: 24px; }
+    fieldset { margin: 16px 0; padding: 12px 16px; }
+    legend { font-weight: bold; }
+    .nota { font-size: 0.95rem; color: #333; }
+    .fila { margin: 8px 0; }
+    hr { margin: 18px 0; }
+    code { background: #f4f4f4; padding: 2px 6px; border-radius: 4px; }
+  </style>
+</head>
+
+<body>
+  <h1>Actividad 2 — Taller: Iniciando lenguaje HTML</h1>
+  <p class="nota">
+    Guarda este archivo como <code>actividad2.html</code> y ábrelo en tu navegador para tomar las capturas.
+    <br>
+    <strong>Nota:</strong> En el Caso 7, si quieres ver el ícono, guarda un archivo llamado <code>send.svg</code>
+    en la misma carpeta (si no, se verá el texto alternativo).
+  </p>
+
+  <hr>
+
+<!-- ========================================================= -->
+<!-- CASO 1: <input> (type, name, value) -->
+<!-- ========================================================= -->
+<fieldset>
+  <legend>Caso 1 — &lt;input&gt; (type, name, value)</legend>
+  
+  <!-- Tabla para atributo type -->
+  <table class="tabla-atributo">
+    <thead>
+      <tr>
+        <th colspan="2">Atributo <code>type</code></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <p><strong>Texto:</strong> <input type="text" placeholder="Escriba aquí..."></p>
+          <p><strong>Correo:</strong> <input type="email" placeholder="ejemplo@dominio.com"></p>
+          <p><strong>Número:</strong> <input type="number" min="0" max="100"></p>
+          <p><strong>Fecha:</strong> <input type="date"></p>
+        </td>
+        <td class="explicacion">
+          <p>Define el tipo de dato que el usuario puede ingresar.</p>
+          <p>Valores comunes: <code>text</code>, <code>email</code>, <code>number</code>, <code>password</code>, <code>date</code>, entre otros.</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <!-- Tabla para atributo name -->
+  <table class="tabla-atributo">
+    <thead>
+      <tr>
+        <th colspan="2">Atributo <code>name</code></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <form>
+            <p><strong>Nombre:</strong> <input type="text" name="nombre" placeholder="Su nombre completo"></p>
+            <p><strong>Email:</strong> <input type="email" name="correo" placeholder="ejemplo@dominio.com"></p>
+          </form>
+        </td>
+        <td class="explicacion">
+          <p>Identifica el campo en el formulario para su procesamiento en el servidor.</p>
+          <p>Es esencial para enviar datos. Sin este atributo, el campo no será enviado al servidor.</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <!-- Tabla para atributo value -->
+  <table class="tabla-atributo">
+    <thead>
+      <tr>
+        <th colspan="2">Atributo <code>value</code></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <p><strong>Texto predeterminado:</strong> <input type="text" value="Texto predeterminado"></p>
+          <p><strong>Fecha predeterminada:</strong> <input type="date" value="2023-01-01"></p>
+          <p><strong>Radio button seleccionado:</strong> 
+            <input type="radio" name="ejemplo" value="opcion1"> Opción 1
+            <input type="radio" name="ejemplo" value="opcion2" checked> Opción 2 ✓
+          </p>
+        </td>
+        <td class="explicacion">
+          <p>Establece un valor inicial o predeterminado en el campo.</p>
+          <p>En radio buttons, el atributo <code>checked</code> indica la opción seleccionada por defecto.</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</fieldset>
+
+  <!-- ========================================================= -->
+<!-- CASO 2: <input> (required) -->
+<!-- ========================================================= -->
+<fieldset>
+  <legend>Caso 2 — &lt;input&gt; (required)</legend>
+  
+  <!-- Tabla para atributo required -->
+  <table class="tabla-atributo">
+    <thead>
+      <tr>
+        <th colspan="2">Atributo <code>required</code></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <form action="#" method="get">
+            <p><strong>Nombre completo:</strong> <input type="text" name="nombre" required placeholder="Campo obligatorio"></p>
+            <p><strong>Correo electrónico:</strong> <input type="email" name="correo" required placeholder="ejemplo@dominio.com"></p>
+            <p><strong>Edad:</strong> <input type="number" name="edad" min="18" required></p>
+            
+            <p style="color: #d32f2f; font-weight: bold;">
+              <strong>⚠️ Nota:</strong> Todos estos campos son obligatorios (tienen el atributo <code>required</code>)
+            </p>
+            
+            <p>
+              <input type="submit" value="Enviar formulario">
+              <input type="reset" value="Limpiar">
+            </p>
+          </form>
+        </td>
+        <td class="explicacion">
+          <p>Hace que el campo sea obligatorio para enviar el formulario.</p>
+          <p>El navegador impedirá el envío del formulario si este campo está vacío y mostrará un mensaje de validación nativo.</p>
+          <p>El atributo <code>required</code> es esencial para garantizar que el usuario proporcione información crítica antes de enviar el formulario.</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <!-- Ejemplo adicional con formulario incompleto -->
+  <div class="ejemplo-adicional">
+    <h4>Ejemplo de validación en acción</h4>
+    <p>Para probar el atributo <code>required</code>:</p>
+    <ol>
+      <li>Llene solo el campo "Nombre completo"</li>
+      <li>Deje vacíos los campos "Correo electrónico" y "Edad"</li>
+      <li>Haga clic en "Enviar formulario"</li>
+      <li>Observe cómo el navegador muestra un mensaje de error para los campos vacíos</li>
+    </ol>
+  </div>
+</fieldset>
+
+ <!-- ========================================================= -->
+<!-- CASO 3: <input> (placeholder) -->
+<!-- ========================================================= -->
+<fieldset>
+  <legend>Caso 3 — &lt;input&gt; (placeholder)</legend>
+  
+  <!-- Tabla para atributo placeholder -->
+  <table class="tabla-atributo">
+    <thead>
+      <tr>
+        <th colspan="2">Atributo <code>placeholder</code></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <form>
+            <p><strong>Nombre completo:</strong> <input type="text" placeholder="Ej: Juan Pérez"></p>
+            <p><strong>Correo electrónico:</strong> <input type="email" placeholder="ejemplo@dominio.com"></p>
+            <p><strong>Búsqueda:</strong> <input type="search" placeholder="Buscar en el sitio..."></p>
+            <p><strong>Comentario:</strong> <input type="text" placeholder="Escriba sus comentarios aquí..."></p>
+            
+            <p class="nota">
+              <strong>💡 Nota:</strong> El texto gris en los campos es el placeholder. 
+              Al hacer clic en el campo, el texto desaparece para comenzar a escribir.
+            </p>
+          </form>
+        </td>
+        <td class="explicacion">
+          <p>Proporciona una pista o sugerencia sobre qué tipo de información debe ingresar el usuario.</p>
+          <p>El texto del placeholder aparece en color gris claro dentro del campo de entrada y desaparece automáticamente cuando el usuario comienza a escribir.</p>
+          <p>Es útil para guiar al usuario sobre el formato esperado (ej: "ej: juan@ejemplo.com") sin necesidad de etiquetas adicionales.</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <!-- Ejemplo adicional con formulario -->
+  <div class="ejemplo-adicional">
+    <h4>Ejemplo de placeholder en acción</h4>
+    <p>Observe cómo el placeholder funciona:</p>
+    <ol>
+      <li>Los campos aparecen con texto gris de ayuda</li>
+      <li>Al hacer clic en un campo, el texto gris desaparece</li>
+      <li>Al borrar el contenido, el placeholder vuelve a aparecer</li>
+      <li>El placeholder no se envía con los datos del formulario</li>
+    </ol>
+    <p class="nota">El placeholder mejora la experiencia del usuario al proporcionar contexto sin requerir espacios adicionales en la interfaz.</p>
+  </div>
+</fieldset>
+
+<!-- ========================================================= -->
+<!-- CASO 4: <input> (size) -->
+<!-- ========================================================= -->
+<fieldset>
+  <legend>Caso 4 — &lt;input&gt; (size)</legend>
+  
+  <table class="tabla-atributo">
+    <thead>
+      <tr>
+        <th colspan="2">Atributo <code>size</code></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <form>
+            <p><strong>Nombre:</strong> <input type="text" name="nombre"></p>
+            <p><strong>Apellidos:</strong> <input type="text" name="apellidos" size="40"></p>
+            <p><strong>Nacionalidad:</strong> <input type="text" name="nacionalidad" size="20"></p>
+          </form>
+        </td>
+        <td class="explicacion">
+          <p>Define el ancho visible del campo de entrada en caracteres.</p>
+          <p>El atributo <code>size</code> establece cuántos caracteres aproximadamente se muestran en el campo, pero no limita la cantidad de caracteres que el usuario puede ingresar.</p>
+          <p>Es útil para ajustar visualmente el tamaño de los campos según la información esperada (ej: apellidos más largos que nombres).</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</fieldset>
+
+<!-- ========================================================= -->
+<!-- CASO 5: <input> (maxlength, minlength) -->
+<!-- ========================================================= -->
+<fieldset>
+  <legend>Caso 5 — &lt;input&gt; (maxlength, minlength)</legend>
+  
+  <table class="tabla-atributo">
+    <thead>
+      <tr>
+        <th colspan="2">Atributos <code>maxlength</code> y <code>minlength</code></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <form>
+            <p><strong>Usuario:</strong> <input type="text" name="usuario" maxlength="15" placeholder="Máx. 15 caracteres"></p>
+            <p><strong>Contraseña:</strong> <input type="password" name="password" minlength="6" maxlength="12" placeholder="6-12 caracteres"></p>
+            <p><strong>Comentario:</strong> <input type="text" name="comentario" minlength="10" placeholder="Mín. 10 caracteres"></p>
+            
+            <p class="nota">
+              <strong>💡 Nota:</strong> 
+              - El campo de usuario solo permite 15 caracteres como máximo<br>
+              - La contraseña requiere entre 6 y 12 caracteres<br>
+              - El comentario requiere al menos 10 caracteres
+            </p>
+          </form>
+        </td>
+        <td class="explicacion">
+          <p><strong>maxlength</strong>: Define el número máximo de caracteres permitidos en el campo.</p>
+          <p>El usuario no puede ingresar más caracteres de los especificados. Es útil para campos como usuarios, contraseñas o códigos donde se requiere una longitud específica.</p>
+          
+          <p><strong>minlength</strong>: Define el número mínimo de caracteres requeridos en el campo.</p>
+          <p>El formulario no se enviará si el campo tiene menos caracteres de los especificados. Es esencial para asegurar que el usuario proporcione información suficiente, especialmente en contraseñas.</p>
+          
+          <p>Estos atributos mejoran la experiencia del usuario al establecer límites claros y facilitar la validación de datos antes del envío al servidor.</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</fieldset>
+
+<!-- ========================================================= -->
+<!-- CASO 6: <input> (type="submit") -->
+<!-- ========================================================= -->
+<fieldset>
+  <legend>Caso 6 — &lt;input&gt; (type="submit")</legend>
+  
+  <table class="tabla-atributo">
+    <thead>
+      <tr>
+        <th colspan="2">Atributo <code>type="submit"</code></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <form action="#" method="get">
+            <p><strong>Nombre:</strong> <input type="text" name="nombre" required></p>
+            <p><strong>Correo:</strong> <input type="email" name="correo" required></p>
+            
+            <p>
+              <input type="submit" value="Enviar formulario">
+              <input type="reset" value="Limpiar campos">
+            </p>
+            
+            <p class="nota">
+              <strong>💡 Nota:</strong> 
+              - El botón "Enviar formulario" usa <code>type="submit"</code><br>
+              - El botón "Limpiar campos" usa <code>type="reset"</code>
+            </p>
+          </form>
+        </td>
+        <td class="explicacion">
+          <p>Crea un botón que envía los datos del formulario al servidor cuando es presionado.</p>
+          <p>El atributo <code>value</code> define el texto que se muestra en el botón (ej: "Enviar", "Guardar", "Continuar").</p>
+          <p>Al hacer clic en este botón, el navegador envía los datos del formulario a la URL especificada en el atributo <code>action</code> del formulario, utilizando el método definido en <code>method</code>.</p>
+          <p>Es el elemento principal para completar el proceso de envío de formularios en aplicaciones web.</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</fieldset>
+
+<!-- ========================================================= -->
+<!-- CASO 7: <input> (type="image") -->
+<!-- ========================================================= -->
+<fieldset>
+  <legend>Caso 7 — &lt;input&gt; (type="image")</legend>
+  
+  <table class="tabla-atributo">
+    <thead>
+      <tr>
+        <th colspan="2">Atributo <code>type="image"</code></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <form action="#" method="get">
+            <p><strong>Nombre:</strong> <input type="text" name="nombre" required></p>
+            <p><strong>Correo:</strong> <input type="email" name="correo" required></p>
+            
+            <p>
+              <input type="image" src="send.svg" alt="Enviar" width="32" height="32">
+            </p>
+            
+            <p class="nota">
+              <strong>💡 Nota:</strong> 
+              - El botón usa <code>type="image"</code><br>
+              - Reemplaza el botón de texto estándar con una imagen
+            </p>
+          </form>
+        </td>
+        <td class="explicacion">
+          <p>Crea un botón de envío que utiliza una imagen en lugar de texto.</p>
+          <p>El atributo <code>src</code> especifica la ruta de la imagen, y <code>alt</code> proporciona texto alternativo para accesibilidad.</p>
+          <p>Al hacer clic en la imagen, el formulario se envía al servidor. Es útil para diseños más estéticos que requieren imágenes en lugar de botones de texto.</p>
+          <p>Este tipo de input también envía las coordenadas del clic (x e y) como parte de los datos del formulario.</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</fieldset>
+
+<!-- ========================================================= -->
+<!-- CASO 8: <input> (type="password") -->
+<!-- ========================================================= -->
+<fieldset>
+  <legend>Caso 8 — &lt;input&gt; (type="password")</legend>
+  
+  <table class="tabla-atributo">
+    <thead>
+      <tr>
+        <th colspan="2">Atributo <code>type="password"</code></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <form>
+            <p><strong>Usuario:</strong> <input type="text" name="usuario" required></p>
+            <p><strong>Contraseña:</strong> <input type="password" name="contrasena" placeholder="Mín. 6 caracteres"></p>
+            <p><strong>Confirmar:</strong> <input type="password" name="confirmar" placeholder="Ingrese de nuevo"></p>
+            
+            <p class="nota">
+              <strong>💡 Nota:</strong> 
+              - Los caracteres ingresados se muestran como <code>•</code> o <code>*</code><br>
+              - El placeholder es visible hasta que se comienza a escribir
+            </p>
+          </form>
+        </td>
+        <td class="explicacion">
+          <p>Oculta visualmente los caracteres ingresados para proteger información sensible.</p>
+          <p>En lugar de mostrar el texto real, el navegador muestra puntos, asteriscos o caracteres similares.</p>
+          <p>Es esencial para campos que contienen datos privados como contraseñas, números de tarjetas o información confidencial.</p>
+          <p>Nota importante: Este atributo solo oculta la entrada visualmente; para seguridad real se requiere HTTPS y validación adicional en el servidor.</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</fieldset>
+
+<!-- ========================================================= -->
+<!-- CASO 9: <input> (type="number") -->
+<!-- ========================================================= -->
+<fieldset>
+  <legend>Caso 9 — &lt;input&gt; (type="number")</legend>
+  
+  <table class="tabla-atributo">
+    <thead>
+      <tr>
+        <th colspan="2">Atributo <code>type="number"</code></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <form>
+            <p><strong>Edad:</strong> <input type="number" name="edad" min="18" max="100"></p>
+            <p><strong>Cantidad:</strong> <input type="number" name="cantidad" min="1" step="1"></p>
+            <p><strong>Rating:</strong> <input type="number" name="rating" min="1" max="5" step="0.5" value="3.5"></p>
+            
+            <p class="nota">
+              <strong>💡 Nota:</strong> 
+              - El navegador muestra controles de incremento/decremento<br>
+              - Los valores fuera del rango (min/max) no son permitidos
+            </p>
+          </form>
+        </td>
+        <td class="explicacion">
+          <p>Permite solo entrada numérica con validación nativa del navegador.</p>
+          <p>Los atributos <code>min</code> y <code>max</code> definen los límites del valor permitido, mientras que <code>step</code> controla el incremento/decremento (por defecto 1).</p>
+          <p>El navegador muestra controles de flechas para aumentar/disminuir el valor y bloquea la entrada de caracteres no numéricos.</p>
+          <p>Es especialmente útil para campos que requieren valores numéricos específicos como edades, cantidades o calificaciones.</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</fieldset>
+
+<!-- ========================================================= -->
+<!-- CASO 10: <input> (type="date") -->
+<!-- ========================================================= -->
+<fieldset>
+  <legend>Caso 10 — &lt;input&gt; (type="date")</legend>
+  
+  <table class="tabla-atributo">
+    <thead>
+      <tr>
+        <th colspan="2">Atributo <code>type="date"</code></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <form>
+            <p><strong>Fecha de nacimiento:</strong> <input type="date" name="nacimiento" min="1900-01-01" max="2023-12-31"></p>
+            <p><strong>Fecha de registro:</strong> <input type="date" name="registro" value="2023-10-05"></p>
+            <p><strong>Fecha límite:</strong> <input type="date" name="limite" min="2023-10-01"></p>
+            
+            <p class="nota">
+              <strong>💡 Nota:</strong> 
+              - El navegador muestra un calendario integrado<br>
+              - Los valores deben estar en formato YYYY-MM-DD
+            </p>
+          </form>
+        </td>
+        <td class="explicacion">
+          <p>Muestra un selector de fecha con calendario integrado del navegador.</p>
+          <p>El formato requerido es <code>AAAA-MM-DD</code> (año-mes-día). Los atributos <code>min</code> y <code>max</code> definen los límites de fecha permitidos.</p>
+          <p>Es útil para campos que requieren fechas específicas como nacimiento, eventos o plazos. El navegador valida automáticamente que la fecha seleccionada esté dentro del rango especificado.</p>
+          <p>Nota: El formato de fecha puede variar según la configuración regional, pero el valor enviado siempre sigue el formato ISO (AAAA-MM-DD).</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</fieldset>
+
+<!-- ========================================================= -->
+<!-- CASO 11: <textarea> -->
+<!-- ========================================================= -->
+<fieldset>
+  <legend>Caso 11 — &lt;textarea&gt;</legend>
+  
+  <table class="tabla-atributo">
+    <thead>
+      <tr>
+        <th colspan="2">Atributos <code>rows</code> y <code>cols</code></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <form>
+            <p><strong>Comentario:</strong>
+              <textarea name="comentario" rows="4" cols="40" placeholder="Escribe tu comentario aquí..."></textarea>
+            </p>
+            <p><strong>Descripción del proyecto:</strong>
+              <textarea name="descripcion" rows="6" cols="50"></textarea>
+            </p>
+            
+            <p class="nota">
+              <strong>💡 Nota:</strong> 
+              - <code>rows</code> define el número de líneas visibles<br>
+              - <code>cols</code> define el ancho visible en caracteres
+            </p>
+          </form>
+        </td>
+        <td class="explicacion">
+          <p>Permite ingresar texto multilínea, ideal para comentarios, descripciones largas o cualquier contenido que requiera más de una línea.</p>
+          <p>Los atributos <code>rows</code> y <code>cols</code> definen las dimensiones visuales del campo (número de líneas y ancho en caracteres), pero no limitan la cantidad de texto que el usuario puede ingresar.</p>
+          <p>A diferencia del <code>&lt;input type="text"&gt;</code>, el textarea soporta saltos de línea y permite ingresar texto extenso. Es esencial para interfaces donde se requiere información detallada del usuario.</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</fieldset>
+
+<!-- ========================================================= -->
+<!-- CASO 12: <select> -->
+<!-- ========================================================= -->
+<fieldset>
+  <legend>Caso 12 — &lt;select&gt;</legend>
+  
+  <table class="tabla-atributo">
+    <thead>
+      <tr>
+        <th colspan="2">Atributos <code>name</code>, <code>value</code>, <code>selected</code></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <form>
+            <p><strong>Selecciona una opción:</strong>
+              <select name="menu">
+                <option value="1">Uno</option>
+                <option value="2">Dos</option>
+                <option value="3" selected>Tres</option>
+              </select>
+            </p>
+            <p><strong>País de residencia:</strong>
+              <select name="pais" required>
+                <option value="">Seleccione un país</option>
+                <option value="co">Colombia</option>
+                <option value="mx">México</option>
+                <option value="ar">Argentina</option>
+                <option value="pe">Perú</option>
+              </select>
+            </p>
+            
+            <p class="nota">
+              <strong>💡 Nota:</strong> 
+              - El atributo <code>name</code> identifica el campo en el formulario<br>
+              - <code>value</code> define el valor enviado al servidor<br>
+              - <code>selected</code> establece la opción predeterminada
+            </p>
+          </form>
+        </td>
+        <td class="explicacion">
+          <p>Crea un menú desplegable con opciones predefinidas para que el usuario seleccione una.</p>
+          <p>El atributo <code>name</code> identifica el campo para su procesamiento en el servidor. Cada <code>&lt;option&gt;</code> tiene un <code>value</code> que se envía al servidor cuando se selecciona.</p>
+          <p>El atributo <code>selected</code> en un <code>&lt;option&gt;</code> establece la opción predeterminada que aparece seleccionada al cargar el formulario.</p>
+          <p>Es útil para campos donde el usuario debe elegir entre un conjunto limitado de opciones, como países, categorías o tipos de producto.</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</fieldset>
+
+</body>
+</html>
